@@ -34,8 +34,8 @@ public class BaseClass {
 	
      @Parameters("BROWSER")
 	@BeforeClass(alwaysRun = true)
-	public void configBCTest( String BROWSER ) throws Throwable {
-		//String BROWSER = fu.getDataFromPropertyFile("Browser");
+	public void configBCTest(  ) throws Throwable {
+		String BROWSER = fu.getDataFromPropertyFile("Browser");
     	// String BROWSER= System.getProperty("browser",fu.getDataFromPropertyFile("browser"));
 		if (BROWSER.equals("chrome")) {
 			driver = new ChromeDriver();
