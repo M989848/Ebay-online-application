@@ -11,6 +11,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import ebay.GenericUtility.PropertyFileUtility;
@@ -32,10 +33,16 @@ public class BaseClass {
 		System.out.println("connection to db ");
 	}
 	
-     @Parameters("BROWSER")
+    @Parameters("BROWSER")
 	@BeforeClass(alwaysRun = true)
-	public void configBCTest(  ) throws Throwable {
-		String BROWSER = fu.getDataFromPropertyFile("Browser");
+	public void configBCTest( @Optional("chrome")String browser ) throws Throwable {
+    	 String BROWSER=null;
+    	 try {
+    		 BROWSER=browser;
+    	 } catch (Exception E) {
+		 BROWSER= fu.getDataFromPropertyFile("Browser");
+    	 }
+    	 System.out.println("N:"+BROWSER);
     	// String BROWSER= System.getProperty("browser",fu.getDataFromPropertyFile("browser"));
 		if (BROWSER.equals("chrome")) {
 			driver = new ChromeDriver();

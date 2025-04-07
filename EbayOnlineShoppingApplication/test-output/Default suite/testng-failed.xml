@@ -3,17 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ebay.DataFlow.IntegratedTest">
+      <class name="ebay.BasicFunctionality.BasicAndCriticalFeautureTest">
         <methods>
-          <include name="CartTest"/>
           <include name="configAMTest"/>
+          <include name="createAccountTest"/>
           <include name="configBMTest"/>
           <include name="configBSTest"/>
           <include name="configBCTest"/>
           <include name="configAcTest"/>
           <include name="configAsTest"/>
         </methods>
-      </class> <!-- ebay.DataFlow.IntegratedTest -->
+      </class> <!-- ebay.BasicFunctionality.BasicAndCriticalFeautureTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
